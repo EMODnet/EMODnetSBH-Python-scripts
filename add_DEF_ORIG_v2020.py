@@ -5,6 +5,7 @@
 ## IMPORTANT: This script will NOT delete fields, this must be done manually once field data input is complete
 ##
 ## Created by: Graeme Duncan, JNCC for EMODnet Seabed Habitats 2014.
+## Updated by ISPRA 2020-03-18: addition of COMP, COMP_TYPE and SUM_CONF field (MESH confidence assessment score)
 ## Contact: info@emodnet-seabedhabitats.eu
 ###########################
 
@@ -18,7 +19,10 @@ add_fields = [
      ("GUI","TEXT","#","#",8),
      ("POLYGON","LONG",8,"#","#"),
      ("ORIG_HAB","TEXT","#","#",254),
-     ("ORIG_CLASS","TEXT","#","#",254)]
+     ("ORIG_CLASS","TEXT","#","#",254),
+     ("COMP","TEXT","#","#",10),
+     ("COMP_TYPE","TEXT","#","#",20),
+     ("SUM_CONF", "SHORT",5,"#","#")]
 
 for fc in newlist:
 ## Add all fields
