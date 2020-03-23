@@ -7,6 +7,7 @@
 ##
 ## Created by: Graeme Duncan, JNCC for EMODnet Seabed Habitats 2014.
 ## Updated by JNCC 2019-12-19: addition of SUM_CONF field (MESH confidence assessment score)
+## Updated by ISPRA 2020-03-18: addition of COMP and COMP_TYPE fields 
 ## Contact: https://www.emodnet-seabedhabitats.eu/helpdesk/contact-us/
 ###########################
 
@@ -29,6 +30,8 @@ add_fields = [
      ("TRAN_COM","TEXT","#","#",254),
      ("T_RELATE","TEXT","#","#",1),
      ("VAL_COMM","TEXT","#","#",254),
+     ("COMP","TEXT","#","#",10),
+     ("COMP_TYPE","TEXT","#","#",20),
      ("SUM_CONF", "SHORT",5,"#","#")]
 
 for fc in newlist:
