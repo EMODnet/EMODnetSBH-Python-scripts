@@ -1,6 +1,7 @@
 ##########################
 ## Designed to work in Arcgis 10.1
 ## Creates Study Area polygons for all shapefiles within a chosen directory.
+## See https://www.emodnet-seabedhabitats.eu/contribute-data/data-exchange-format/#h1367596acc5c4544855643f4bc3cfd2a for written guidance on the data schema
 ## Outputs Study Area features into a subfolder named "StudyAreas".
 ## Names shapefiles correctly.
 ## Collects GUI from original habitat map name and transfers across.
@@ -8,7 +9,8 @@
 ##
 ## Warning: The habitat maps contained within the supplied folder MUST be in a MESH DEF for this script to work.
 ## Created by: Graeme Duncan, JNCC for EMODnet Seabed Habitats 2014.
-## Contact: info@emodnet-seabedhabitats.eu
+## Updated by JNCC 2019-12-19: removal of SUM_CONF field (it's been moved to the translated habitat DEF)
+## Contact: https://www.emodnet-seabedhabitats.eu/helpdesk/contact-us/
 ###########################
 import arcpy
 from arcpy import env
@@ -27,7 +29,6 @@ for fc in featureList:
     arcpy.AddField_management(fc, "GUI","TEXT","#","#",8)
     arcpy.AddField_management(fc, "UUID", "TEXT","#","#", 36)
     arcpy.AddField_management(fc, "AVAILABLE", "TEXT","#","#", 13)
-    arcpy.AddField_management(fc, "SUM_CONF", "SHORT")
     print "_______________________"
     
 print "************"

@@ -1,11 +1,14 @@
 ##########################
 ## Adds correctly formatted TRANSLATED HABITAT DEF mandatory fields to ESRI Shapefiles or geodatabase featureclasses
+## See https://www.emodnet-seabedhabitats.eu/contribute-data/data-exchange-format for written guidance on the data schema
 ## Enter folder (or geodatabase/dataset) containing the input shapefiles in the command prompt
 ## Script will check for mandatory fields and add if necessary.
 ## IMPORTANT: This script will NOT delete fields, this must be done manually once field data input is complete
 ##
 ## Created by: Graeme Duncan, JNCC for EMODnet Seabed Habitats 2014.
-## Contact: info@emodnet-seabedhabitats.eu
+## Updated by JNCC 2019-12-19: addition of SUM_CONF field (MESH confidence assessment score)
+## Updated by ISPRA 2020-03-18: addition of COMP and COMP_TYPE fields 
+## Contact: https://www.emodnet-seabedhabitats.eu/helpdesk/contact-us/
 ###########################
 
 import arcpy
@@ -26,7 +29,10 @@ add_fields = [
      ("DET_DATE","DATE","#","#","#"),
      ("TRAN_COM","TEXT","#","#",254),
      ("T_RELATE","TEXT","#","#",1),
-     ("VAL_COMM","TEXT","#","#",254)]
+     ("VAL_COMM","TEXT","#","#",254),
+     ("COMP","TEXT","#","#",10),
+     ("COMP_TYPE","TEXT","#","#",20),
+     ("SUM_CONF", "SHORT",5,"#","#")]
 
 for fc in newlist:
 ## Add all fields

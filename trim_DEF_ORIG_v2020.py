@@ -1,9 +1,10 @@
 ##########################
-## Removes fields not required by ORIGINAL HABTIAT DEF within ESRI Shapefiles or geodatabase featureclasses
+## Removes fields not required by ORIGINAL HABITAT DEF within ESRI Shapefiles or geodatabase featureclasses
 ## Enter folder (or geodatabase/dataset) containing the input shapefiles in the command prompt
 ## IMPORTANT: Ensure that the location entered contains ONLY SHAPEFILES TO BE EDITED.
 ##
 ## Created by: Graeme Duncan, JNCC for EMODnet Seabed Habitats 2014.
+## Updated by ISPRA 2020-03-18: addition of COMP, COMP_TYPE and SUM_CONF fields.
 ## Contact: info@emodnet-seabedhabitats.eu
 ###########################
 
@@ -20,10 +21,13 @@ arcpy.env.workspace = root_workspace
 fclist = arcpy.ListFeatureClasses()
 
 add_fields = [
-     ("GUI","TEXT",8),
-     ("POLYGON","LONG","#"),
-     ("ORIG_HAB","TEXT",255),
-     ("ORIG_CLASS","TEXT",255)]
+     ("GUI","TEXT","#","#",8),
+     ("POLYGON","LONG",8,"#","#"),
+     ("ORIG_HAB","TEXT","#","#",254),
+     ("ORIG_CLASS","TEXT","#","#",254),
+     ("COMP","TEXT","#","#",10),
+     ("COMP_TYPE","TEXT","#","#",20),
+     ("SUM_CONF", "SHORT",5,"#","#")]
 
 errorCounter = 0
 

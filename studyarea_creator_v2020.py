@@ -8,6 +8,7 @@
 ##
 ## Warning: The habitat maps contained within the supplied folder MUST be in a MESH DEF for this script to work.
 ## Created by: Graeme Duncan, JNCC for EMODnet Seabed Habitats 2014.
+## Modified by: Sabrina Agnesi, ISPRA for EMODnet Seabed Habitats 2020.
 ## Contact: info@emodnet-seabedhabitats.eu
 ###########################
 import arcpy
@@ -32,6 +33,7 @@ for fc in featureList:
     print "Creating StudyArea for %s..." % fc
     fcName, fcExt = os.path.splitext(str(fc))
     fcGUI = fcName[:8]
+    print fcGUI
     outfc = outdir + "\\" + fcGUI + "_StudyArea" + fcExt
     desc = arcpy.Describe(fc)
     spatref = desc.spatialReference
@@ -54,8 +56,8 @@ for fc in featureList:
     arcpy.AddField_management(outfc, "GUI", "TEXT", "", "",8)
     arcpy.AddField_management(outfc, "UUID", "TEXT", "","",36)
     arcpy.AddField_management(outfc, "AVAILABLE", "TEXT","","",13)
-    arcpy.AddField_management(outfc, "SUM_CONF", "SHORT")
-    arcpy.CalculateField_management(outfc, "GUI", fcGUI, "PYTHON")
+    arcpy.CalculateField_management(outfc, "GUI", '"' + fcGUI + '"', "PYTHON")
+    arcpy.DeleteField_management(outfc,"Id")
     print "_______________________"
     
 print "************"
