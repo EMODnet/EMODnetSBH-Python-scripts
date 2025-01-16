@@ -17,9 +17,9 @@ from arcpy import env
 import os
 
 env.overwriteOutput = True
-print "Please ensure that all habitat maps are named correctly and in a MESH Data Exchange Format"
+print "Please ensure that all habitat maps are named correctly and in a EMODnet Seabed Habitats Data Exchange Format"
 print ""
-root_workspace = raw_input('Paste the full directory path to the folder containing your MESH formatted maps here and press enter: ')
+root_workspace = raw_input('Paste the full directory path to the folder containing your formatted maps here and press enter: ')
 env.workspace = root_workspace
 featureList = arcpy.ListFeatureClasses()
 
